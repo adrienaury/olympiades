@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+  </head>
+  <body>
+
+    <header>
+      <h1>Olympiades</h1>
+    </header>
+
+    <nav>
+      <a href="#page1">Joueurs</a>
+      <a href="#page2">Epreuves</a>
+      <a href="#page3">Scores</a>
+      <a href="#page4">Dashboard</a>
+    </nav>
+
+    <main>
+      
+      <section id="page1" class="page">
+        <h2>Gestion des joueurs</h2>
+        
+        <table id="players">
+          <caption>Liste des joueurs</caption>
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Equipe</th>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody id="playersBody"></tbody>
+        </table>
+        <button id="addPlayer">Ajouter</button>
+      </section>
+
+      <section id="page2" class="page">
+        <h2>Gestion des épreuves</h2>
+
+        <table id="contests">
+          <caption>Liste des épreuves</caption>
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody id="contestsBody"></tbody>
+        </table>
+        <button id="addContest">Ajouter</button>
+      </section>
+
+      <section id="page3" class="page">
+        <h2>Gestion des scores</h2>
+
+      </section>
+
+      <section id="page4" class="page default">
+        <h2>Dashboard</h2>
+
+      </section>
+
+      <aside>
+        Related
+      </aside>
+
+    </main>
+
+
+
+	  <script type="module" src="index.js"></script>
+  </body>
+</html>
