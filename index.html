@@ -12,6 +12,47 @@
   <body class="container">
 
     <main style="padding-top: 0;">
+
+      <section id="page0" class="page">
+        <nav>
+          <ul>
+            <li><h3>Olympiades</h3></li>
+          </ul>
+          <ul>
+            <li><a class="contrast" href="#page0"><strong>Sessions</strong></a></li>
+            <li><a class="contrast" href="#page1">Joueurs</a></li>
+            <li><a class="contrast" href="#page2">Epreuves</a></li>
+            <li><a class="contrast" href="#page3">Scores</a></li>
+            <li><a class="contrast" href="#page4">Dashboard</a></li>
+          </ul>
+        </nav>
+
+        <h6>Nouvelle session</h6>
+        <form>
+          <fieldset class="grid">
+            <input
+              id="createSessionName"
+              placeholder="Nom de la session *"
+            />
+            <input
+              id="addSession"
+              type="button"
+              value="Ajouter"
+            />
+          </fieldset>
+          <table id="sessions" class="striped">
+            <caption>Liste des sessions</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="sessionsBody"></tbody>
+          </table>
+        </form>
+
+      </section>
       
       <section id="page1" class="page">
         <nav>
@@ -19,6 +60,7 @@
             <li><h3>Olympiades</h3></li>
           </ul>
           <ul>
+            <li><a class="contrast" href="#page0">Sessions</a></li>
             <li><a class="contrast" href="#page1"><strong>Joueurs</strong></a></li>
             <li><a class="contrast" href="#page2">Epreuves</a></li>
             <li><a class="contrast" href="#page3">Scores</a></li>
@@ -64,6 +106,7 @@
             <li><h3>Olympiades</h3></li>
           </ul>
           <ul>
+            <li><a class="contrast" href="#page0">Sessions</a></li>
             <li><a class="contrast" href="#page1">Joueurs</a></li>
             <li><a class="contrast" href="#page2"><strong>Epreuves</strong></a></li>
             <li><a class="contrast" href="#page3">Scores</a></li>
@@ -104,6 +147,7 @@
             <li><h3>Olympiades</h3></li>
           </ul>
           <ul>
+            <li><a class="contrast" href="#page0">Sessions</a></li>
             <li><a class="contrast" href="#page1">Joueurs</a></li>
             <li><a class="contrast" href="#page2">Epreuves</a></li>
             <li><a class="contrast" href="#page3"><strong>Scores</strong></a></li>
@@ -158,6 +202,7 @@
             <li><h3>Olympiades</h3></li>
           </ul>
           <ul>
+            <li><a class="contrast" href="#page0">Sessions</a></li>
             <li><a class="contrast" href="#page1">Joueurs</a></li>
             <li><a class="contrast" href="#page2">Epreuves</a></li>
             <li><a class="contrast" href="#page3">Scores</a></li>

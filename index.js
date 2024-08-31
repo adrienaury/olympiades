@@ -1,5 +1,26 @@
 import { Driver } from "./driver.js";
 
+function insertSession(session) {
+    const table = document.getElementById("sessionsBody");
+    let row = table.insertRow();
+    let name = row.insertCell(0);
+    name.innerHTML = session.name;
+    let action = row.insertCell(1);
+    action.classList.add("shrink");
+    let buttons = document.createElement("div");
+    buttons.role = "group";
+    buttons.style = "margin: 0";
+    action.appendChild(buttons);
+    let button = document.createElement("button");
+    button.textContent = "Ouvrir";
+    button.onclick = () => { loadSession(session.name); };
+    buttons.appendChild(button);
+    let button2 = document.createElement("button");
+    button2.textContent = "Supprimer";
+    button2.onclick = () => { deleteSession(session.name); };
+    buttons.appendChild(button2);
+}
+
 function insertPlayer(player) {
     const table = document.getElementById("playersBody");
     let row = table.insertRow();
@@ -86,28 +107,41 @@ function onScoreAdded(event) {
 
 function loadPlayer(players) {
     console.log("Loaded players")
+    document.getElementById("playersBody").innerText="";
     players.forEach(insertPlayer);
 }
 
 function loadContests(contests) {
     console.log("Loaded contests")
+    document.getElementById("contestsBody").innerText="";
     contests.forEach(insertContest);
 }
 
 function loadScores(scores) {
-    console.log("Loaded contests")
+    console.log("Loaded scores")
+    document.getElementById("scoresBody").innerText="";
     scores.forEach(insertScore);
 }
 
 let driver = new Driver(onPlayerAdded, onPlayerChanged, onPlayerRemoved, onContestAdded, onContestRemoved, onScoreAdded);
-let session = driver.getSession("test");
+driver.listSessions().then(sessions => sessions.forEach(insertSession));
 
-session.open();
+let session = null;
 
-session.getPlayers(loadPlayer);
-session.getContests(loadContests);
-session.getScores(loadScores);
+function loadSession(name) {
+    console.log("Loading session %s", name)
+    session = driver.getSession(name);
+    session.open();
+    session.getPlayers(loadPlayer);
+    session.getContests(loadContests);
+    session.getScores(loadScores);
+}
 
+document.getElementById("addSession").onclick = () => {
+    const nameInput = document.getElementById("createSessionName");
+    loadSession(nameInput.value);
+    insertSession(session);
+};
 document.getElementById("addPlayer").onclick = () => {
     const nameInput = document.getElementById("createPlayerName");
     const teamInput = document.getElementById("createPlayerTeam");
