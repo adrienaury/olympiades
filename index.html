@@ -13,7 +13,7 @@
 
     <nav>
       <ul>
-        <li><strong>Olympiades</strong></li>
+        <li><h3>Olympiades</h3></li>
       </ul>
       <ul>
         <li><a class="contrast" href="#page1">Joueurs</a></li>
@@ -27,7 +27,7 @@
       
       <section id="page1" class="page">
         <!-- <h2>Gestion des joueurs</h2> -->
-        
+        <datalist id="playersList"></datalist>
         <table id="players" class="striped">
           <caption>Liste des joueurs</caption>
           <thead>
@@ -44,7 +44,7 @@
 
       <section id="page2" class="page">
         <!-- <h2>Gestion des épreuves</h2> -->
-
+        <datalist id="contestsList"></datalist>
         <table id="contests" class="striped">
           <caption>Liste des épreuves</caption>
           <thead>
@@ -59,7 +59,45 @@
       </section>
 
       <section id="page3" class="page">
-        <!-- <h2>Gestion des scores</h2> -->
+        <!-- <h6>Liste des scores</h6> -->
+
+        <form>
+          <fieldset class="grid">
+            <input
+              id="createScorePlayer"
+              placeholder="Joueur"
+              list="playersList"
+            />
+            <input
+              id="createScoreContest"
+              placeholder="Épreuve"
+              list="contestsList"
+            />
+            <input
+              id="createScoreValue"
+              placeholder="100"
+              step="10"
+              type="number"
+            />
+            <input
+              id="addScore"
+              type="button"
+              value="Enregistrer"
+            />
+          </fieldset>
+        </form>
+
+        <table id="scores" class="striped">
+          <caption>Liste des scores</caption>
+          <thead>
+            <tr>
+              <th scope="col">Joueur</th>
+              <th scope="col">Épreuve</th>
+              <th scope="col">Score</th>
+            </tr>
+          </thead>
+          <tbody id="scoresBody"></tbody>
+        </table>
 
       </section>
 

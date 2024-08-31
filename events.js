@@ -1,4 +1,4 @@
-import { Contest, Player } from "./driver.js";
+import { Contest, Player, Score } from "./driver.js";
 
 export class PlayerAdded {
     session;
@@ -60,5 +60,17 @@ export class ContestRemoved {
 
         this.session = typeof session === 'string' ? session : null;
         this.contest = contest instanceof Contest ? contest : null;
+    }
+}
+
+export class ScoreAdded {
+    session;
+    score;
+    constructor(session, score) {
+        console.assert(typeof session === 'string');
+        console.assert(score instanceof Score);
+
+        this.session = typeof session === 'string' ? session : null;
+        this.score = score instanceof Score ? score : null;
     }
 }

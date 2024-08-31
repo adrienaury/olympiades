@@ -1,4 +1,4 @@
-import { PlayerAdded, PlayerRemoved, PlayerChanged, ContestAdded, ContestRemoved } from "./events.js";
+import { PlayerAdded, PlayerRemoved, PlayerChanged, ContestAdded, ContestRemoved, ScoreAdded } from "./events.js";
 
 export class Player {
     name;
@@ -17,6 +17,17 @@ export class Contest {
     }
 }
 
+export class Score {
+    player;
+    contest;
+    points;
+    constructor(player, contest, points) {
+        this.player = player;
+        this.contest = contest;
+        this.points = points;
+    }
+}
+
 export class Driver {
     onPlayerAdded;
     onPlayerChanged;
@@ -25,12 +36,15 @@ export class Driver {
     onContestAdded;
     onContestRemoved;
 
-    constructor(onPlayerAdded, onPlayerChanged, onPlayerRemoved, onContestAdded, onContestRemoved) {
+    onScoreAdded
+
+    constructor(onPlayerAdded, onPlayerChanged, onPlayerRemoved, onContestAdded, onContestRemoved, onScoreAdded) {
         this.onPlayerAdded = onPlayerAdded;
         this.onPlayerChanged = onPlayerChanged;
         this.onPlayerRemoved = onPlayerRemoved;
         this.onContestAdded = onContestAdded;
         this.onContestRemoved = onContestRemoved;
+        this.onScoreAdded = onScoreAdded;
     }
 
     async listSessions() {
@@ -39,7 +53,7 @@ export class Driver {
     }
 
     getSession(name) {
-        return new Session(name, this.onPlayerAdded, this.onPlayerChanged, this.onPlayerRemoved, this.onContestAdded, this.onContestRemoved);
+        return new Session(name, this.onPlayerAdded, this.onPlayerChanged, this.onPlayerRemoved, this.onContestAdded, this.onContestRemoved, this.onScoreAdded);
     }
 }
 
@@ -53,13 +67,16 @@ export class Session {
     onContestAdded;
     onContestRemoved;
 
-    constructor(name, onPlayerAdded, onPlayerChanged, onPlayerRemoved, onContestAdded, onContestRemoved) {
+    onScoreAdded;
+
+    constructor(name, onPlayerAdded, onPlayerChanged, onPlayerRemoved, onContestAdded, onContestRemoved, onScoreAdded) {
         this.name = name;
         this.onPlayerAdded = onPlayerAdded;
         this.onPlayerChanged = onPlayerChanged;
         this.onPlayerRemoved = onPlayerRemoved;
         this.onContestAdded = onContestAdded;
         this.onContestRemoved = onContestRemoved;
+        this.onScoreAdded = onScoreAdded;
     }
 
     open() {
@@ -176,6 +193,38 @@ export class Session {
         request.onsuccess = (event) => {
             const db = event.target.result;
             db.transaction("players").objectStore("players").getAll().onsuccess = (event) => {
+                callback(event.target.result);
+            };
+        };
+    }
+
+    addScore(player, contest, points) {
+        points = Number(points);
+        if (player == null || player === "") {
+            return;
+        }
+        if (contest == null || contest === "") {
+            return;
+        }
+        if (typeof points !== 'number') {
+            return;
+        }
+
+        const request = window.indexedDB.open(this.name, 1);
+        request.onsuccess = (event) => {
+            const db = event.target.result;
+            const score = new Score(player, contest, points);
+            db.transaction("scores", "readwrite").objectStore("scores").add(score).onsuccess = (event) => {
+                this.onScoreAdded(new ScoreAdded(this.name, score));
+            }
+        };
+    }
+
+    getScores(callback) {
+        const request = window.indexedDB.open(this.name, 1);
+        request.onsuccess = (event) => {
+            const db = event.target.result;
+            db.transaction("scores").objectStore("scores").getAll().onsuccess = (event) => {
                 callback(event.target.result);
             };
         };
