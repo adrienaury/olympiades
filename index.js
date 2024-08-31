@@ -43,10 +43,10 @@ function insertContest(contest) {
 function insertScore(score) {
     const table = document.getElementById("scoresBody");
     let row = table.insertRow(0);
-    let player = row.insertCell(0);
-    player.innerHTML = score.player;
-    let contest = row.insertCell(1);
+    let contest = row.insertCell(0);
     contest.innerHTML = score.contest;
+    let player = row.insertCell(1);
+    player.innerHTML = score.player;
     let points = row.insertCell(2);
     points.innerHTML = score.points;
 }
