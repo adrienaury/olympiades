@@ -14,3 +14,7 @@ caption {
     padding-bottom: 10px;
     font-weight: bold;
 }
+
+.shrink {
+    width: 0%;
+}

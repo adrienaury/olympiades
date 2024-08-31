@@ -1,19 +1,38 @@
 import { Driver } from "./driver.js";
 
-function onPlayerAdded(event) {
-    console.log("Player added on session [" + event.session + "] : name=[" + event.player.name +"] ; team=[" + event.player.team + "]");
+function insertPlayer(player) {
     const table = document.getElementById("playersBody");
     let row = table.insertRow();
-    row.id = event.player.name;
+    row.id = player.name;
     let name = row.insertCell(0);
-    name.innerHTML = event.player.name;
+    name.innerHTML = player.name;
     let team = row.insertCell(1);
-    team.innerHTML = event.player.team;
+    team.innerHTML = player.team;
     let action = row.insertCell(2);
+    action.classList.add("shrink");
     let button = document.createElement("button");
-    button.textContent = "X";
-    button.onclick = () => { removePlayer(event.player.name); };
+    button.textContent = "Remove";
+    button.onclick = () => { removePlayer(player.name); };
     action.appendChild(button);
+}
+
+function insertContest(contest) {
+    const table = document.getElementById("contestsBody");
+    let row = table.insertRow();
+    row.id = contest.name;
+    let name = row.insertCell(0);
+    name.innerHTML = contest.name;
+    let action = row.insertCell(1);
+    action.classList.add("shrink");
+    let button = document.createElement("button");
+    button.textContent = "Remove";
+    button.onclick = () => { removeContest(contest.name); };
+    action.appendChild(button);
+}
+
+function onPlayerAdded(event) {
+    console.log("Player added on session [" + event.session + "] : name=[" + event.player.name +"] ; team=[" + event.player.team + "]");
+    insertPlayer(event.player);
 }
 
 function onPlayerChanged(event) {
@@ -30,16 +49,7 @@ function onPlayerRemoved(event) {
 
 function onContestAdded(event) {
     console.log("Contest added on session [" + event.session + "] : name=[" + event.contest.name +"]");
-    const table = document.getElementById("contestsBody");
-    let row = table.insertRow();
-    row.id = event.contest.name;
-    let name = row.insertCell(0);
-    name.innerHTML = event.contest.name;
-    let action = row.insertCell(1);
-    let button = document.createElement("button");
-    button.textContent = "X";
-    button.onclick = () => { removeContest(event.contest.name); };
-    action.appendChild(button);
+    insertContest(event.contest);
 }
 
 function onContestRemoved(event) {
@@ -51,35 +61,13 @@ function onContestRemoved(event) {
 function loadPlayer(players) {
     console.log("Loaded players")
     const table = document.getElementById("playersBody");
-    players.forEach( player => {
-      let row = table.insertRow();
-      row.id = player.name;
-      let name = row.insertCell(0);
-      name.innerHTML = player.name;
-      let team = row.insertCell(1);
-      team.innerHTML = player.team;
-      let action = row.insertCell(2);
-      let button = document.createElement("button");
-      button.textContent = "X";
-      button.onclick = () => { removePlayer(player.name); };
-      action.appendChild(button);
-    });
+    players.forEach(insertPlayer);
 }
 
 function loadContests(contests) {
     console.log("Loaded contests")
     const table = document.getElementById("contestsBody");
-    contests.forEach( contest => {
-      let row = table.insertRow();
-      row.id = contest.name;
-      let name = row.insertCell(0);
-      name.innerHTML = contest.name;
-      let action = row.insertCell(1);
-      let button = document.createElement("button");
-      button.textContent = "X";
-      button.onclick = () => { removeContest(contest.name); };
-      action.appendChild(button);
-    });
+    contests.forEach(insertContest);
 }
 
 let driver = new Driver(onPlayerAdded, onPlayerChanged, onPlayerRemoved, onContestAdded, onContestRemoved);
