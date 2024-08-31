@@ -104,20 +104,6 @@ let session = driver.getSession("test");
 
 session.open();
 
-session.setPlayer("Thierry", "Rouge");
-session.setPlayer("Claire", "Jaune");
-session.setPlayer("Samuel", "Bleu");
-session.setPlayer("Thibault", "Jaune");
-session.setPlayer("Nadège", "Rouge");
-session.setPlayer("Adrien", "Bleu");
-session.addContest("Mot commun");
-session.addContest("Toucher");
-session.addContest("Quizz");
-session.addContest("Boîtes");
-session.addContest("Fléchettes");
-session.addContest("Basket");
-session.addContest("Quilles");
-
 session.getPlayers(loadPlayer);
 session.getContests(loadContests);
 session.getScores(loadScores);
