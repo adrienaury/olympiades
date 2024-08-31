@@ -11,21 +11,21 @@
   </head>
   <body class="container">
 
-    <nav>
-      <ul>
-        <li><h3>Olympiades</h3></li>
-      </ul>
-      <ul>
-        <li><a class="contrast" href="#page1">Joueurs</a></li>
-        <li><a class="contrast" href="#page2">Epreuves</a></li>
-        <li><a class="contrast" href="#page3">Scores</a></li>
-        <li><a class="contrast" href="#page4">Dashboard</a></li>
-      </ul>
-    </nav>
-
-    <main>
+    <main style="padding-top: 0;">
       
       <section id="page1" class="page">
+        <nav>
+          <ul>
+            <li><h3>Olympiades</h3></li>
+          </ul>
+          <ul>
+            <li><a class="contrast" href="#page1"><strong>Joueurs</strong></a></li>
+            <li><a class="contrast" href="#page2">Epreuves</a></li>
+            <li><a class="contrast" href="#page3">Scores</a></li>
+            <li><a class="contrast" href="#page4">Dashboard</a></li>
+          </ul>
+        </nav>
+
         <!-- <h2>Gestion des joueurs</h2> -->
         <datalist id="playersList"></datalist>
         <table id="players" class="striped">
@@ -43,6 +43,18 @@
       </section>
 
       <section id="page2" class="page">
+        <nav>
+          <ul>
+            <li><h3>Olympiades</h3></li>
+          </ul>
+          <ul>
+            <li><a class="contrast" href="#page1">Joueurs</a></li>
+            <li><a class="contrast" href="#page2"><strong>Epreuves</strong></a></li>
+            <li><a class="contrast" href="#page3">Scores</a></li>
+            <li><a class="contrast" href="#page4">Dashboard</a></li>
+          </ul>
+        </nav>
+
         <!-- <h2>Gestion des épreuves</h2> -->
         <datalist id="contestsList"></datalist>
         <table id="contests" class="striped">
@@ -59,8 +71,19 @@
       </section>
 
       <section id="page3" class="page">
-        <!-- <h6>Liste des scores</h6> -->
+        <nav>
+          <ul>
+            <li><h3>Olympiades</h3></li>
+          </ul>
+          <ul>
+            <li><a class="contrast" href="#page1">Joueurs</a></li>
+            <li><a class="contrast" href="#page2">Epreuves</a></li>
+            <li><a class="contrast" href="#page3"><strong>Scores</strong></a></li>
+            <li><a class="contrast" href="#page4">Dashboard</a></li>
+          </ul>
+        </nav>
 
+        <!-- <h6>Liste des scores</h6> -->
         <form>
           <fieldset class="grid">
             <input
@@ -102,7 +125,19 @@
       </section>
 
       <section id="page4" class="page default">
-        <!-- <h2>Dashboard</h2> -->
+        <nav>
+          <ul>
+            <li><h3>Olympiades</h3></li>
+          </ul>
+          <ul>
+            <li><a class="contrast" href="#page1">Joueurs</a></li>
+            <li><a class="contrast" href="#page2">Epreuves</a></li>
+            <li><a class="contrast" href="#page3">Scores</a></li>
+            <li><a class="contrast" href="#page4"><strong>Dashboard</strong></a></li>
+          </ul>
+        </nav>
+
+        <!-- <h6>Dashboard</h6> -->
 
       </section>
 
@@ -111,8 +146,6 @@
       </aside>
 
     </main>
-
-
 
 	  <script type="module" src="index.js"></script>
   </body>
