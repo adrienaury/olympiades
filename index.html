@@ -27,6 +27,23 @@
         </nav>
 
         <!-- <h2>Gestion des joueurs</h2> -->
+        <form>
+          <fieldset class="grid">
+            <input
+              id="createPlayerName"
+              placeholder="Nom joueur"
+            />
+            <input
+              id="createPlayerTeam"
+              placeholder="Équipe"
+            />
+            <input
+              id="addPlayer"
+              type="button"
+              value="Inscrire"
+            />
+          </fieldset>
+        </form>
         <datalist id="playersList"></datalist>
         <table id="players" class="striped">
           <caption>Liste des joueurs</caption>
@@ -39,7 +56,7 @@
           </thead>
           <tbody id="playersBody"></tbody>
         </table>
-        <button id="addPlayer">Ajouter</button>
+        <!-- <button id="addPlayer">Ajouter</button> -->
       </section>
 
       <section id="page2" class="page">
@@ -56,6 +73,19 @@
         </nav>
 
         <!-- <h2>Gestion des épreuves</h2> -->
+        <form>
+          <fieldset class="grid">
+            <input
+              id="createContestName"
+              placeholder="Nom de l'épreuve"
+            />
+            <input
+              id="addContest"
+              type="button"
+              value="Ajouter"
+            />
+          </fieldset>
+        </form>
         <datalist id="contestsList"></datalist>
         <table id="contests" class="striped">
           <caption>Liste des épreuves</caption>
@@ -67,7 +97,7 @@
           </thead>
           <tbody id="contestsBody"></tbody>
         </table>
-        <button id="addContest">Ajouter</button>
+        <!-- <button id="addContest">Ajouter</button> -->
       </section>
 
       <section id="page3" class="page">

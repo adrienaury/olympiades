@@ -122,8 +122,15 @@ session.getPlayers(loadPlayer);
 session.getContests(loadContests);
 session.getScores(loadScores);
 
-document.getElementById("addPlayer").onclick = () => {session.setPlayer(prompt("Nom du joueur"), prompt("Equipe du joueur"))};
-document.getElementById("addContest").onclick = () => {session.addContest(prompt("Nom de l'épreuve"))};
+document.getElementById("addPlayer").onclick = () => {
+    const nameInput = document.getElementById("createPlayerName");
+    const teamInput = document.getElementById("createPlayerTeam");
+    session.setPlayer(nameInput.value, teamInput.value);
+};
+document.getElementById("addContest").onclick = () => {
+    const nameInput = document.getElementById("createContestName");
+    session.addContest(nameInput.value);
+};
 document.getElementById("addScore").onclick = () => {
     const playerInput = document.getElementById("createScorePlayer");
     const contestInput = document.getElementById("createScoreContest");
