@@ -31,7 +31,7 @@
           <fieldset class="grid">
             <input
               id="createPlayerName"
-              placeholder="Nom joueur"
+              placeholder="Nom joueur *"
             />
             <input
               id="createPlayerTeam"
@@ -76,7 +76,7 @@
           <fieldset class="grid">
             <input
               id="createContestName"
-              placeholder="Nom de l'épreuve"
+              placeholder="Nom de l'épreuve *"
             />
             <input
               id="addContest"
@@ -114,14 +114,14 @@
         <h6>Enregistrement</h6>
         <form>
           <fieldset class="grid">
-            <input
+            <input onfocus="this.value=''"
               id="createScoreContest"
-              placeholder="Épreuve"
+              placeholder="Épreuve *"
               list="contestsList"
             />
-            <input
+            <input onfocus="this.value=''"
               id="createScorePlayer"
-              placeholder="Joueur"
+              placeholder="Joueur *"
               list="playersList"
             />
             <input
