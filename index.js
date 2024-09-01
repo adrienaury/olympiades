@@ -19,6 +19,16 @@ function insertSession(session) {
     button2.textContent = "Supprimer";
     button2.onclick = () => { deleteSession(session.name); };
     buttons.appendChild(button2);
+
+    // const sessionList = document.getElementById("sessionsList");
+    // let option = document.createElement("li");
+    // let optionLink = document.createElement("a");
+    // optionLink.innerText = session.name;
+    // optionLink.href = "#page1";
+    // optionLink.onclick = () => { loadSession(session.name); };
+    // sessionList.appendChild(option);
+    // option.appendChild(optionLink);
+    // sessionList.parentElement.removeAttribute('open');
 }
 
 function insertPlayer(player) {
@@ -127,6 +137,7 @@ let driver = new Driver(onPlayerAdded, onPlayerChanged, onPlayerRemoved, onConte
 driver.listSessions().then(sessions => sessions.forEach(insertSession));
 
 let session = null;
+location.hash = "#page0";
 
 function loadSession(name) {
     console.log("Loading session %s", name)
@@ -135,6 +146,8 @@ function loadSession(name) {
     session.getPlayers(loadPlayer);
     session.getContests(loadContests);
     session.getScores(loadScores);
+    document.getElementsByName("displaySessionName").forEach(e => e.innerText = name);
+    location.hash = "#page1";
 }
 
 document.getElementById("addSession").onclick = () => {

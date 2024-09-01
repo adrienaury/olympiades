@@ -10,57 +10,26 @@
     <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
   </head>
   <body class="container">
+    
+    <!-- <details class="dropdown" style="width: fit-content; position: fixed; margin-left: 10rem; margin-top: 10px;">
+      <summary name="displaySessionName" role="button" class="contrast outline">Choisir une session...</summary>
+      <ul id="sessionsList">
+        <li><a href="#page0">+ Créer une session</a></li>
+      </ul>
+    </details> -->
 
     <main style="padding-top: 0;">
-
-      <section id="page0" class="page">
-        <nav>
-          <ul>
-            <li><h3>Olympiades</h3></li>
-          </ul>
-          <ul>
-            <li><a class="contrast" href="#page0"><strong>Sessions</strong></a></li>
-            <li><a class="contrast" href="#page1">Joueurs</a></li>
-            <li><a class="contrast" href="#page2">Epreuves</a></li>
-            <li><a class="contrast" href="#page3">Scores</a></li>
-            <li><a class="contrast" href="#page4">Dashboard</a></li>
-          </ul>
-        </nav>
-
-        <h6>Nouvelle session</h6>
-        <form>
-          <fieldset class="grid">
-            <input
-              id="createSessionName"
-              placeholder="Nom de la session *"
-            />
-            <input
-              id="addSession"
-              type="button"
-              value="Ajouter"
-            />
-          </fieldset>
-          <table id="sessions" class="striped">
-            <caption>Liste des sessions</caption>
-            <thead>
-              <tr>
-                <th scope="col">Nom</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="sessionsBody"></tbody>
-          </table>
-        </form>
-
-      </section>
       
       <section id="page1" class="page">
         <nav>
           <ul>
-            <li><h3>Olympiades</h3></li>
+            <hgroup>
+              <h3>Olympiades</h3>
+              <h4 name="displaySessionName">- aucune session ouverte -</h4>
+            </hgroup>
           </ul>
           <ul>
-            <li><a class="contrast" href="#page0">Sessions</a></li>
+            <!-- <li><a class="contrast" href="#page0">Sessions</a></li> -->
             <li><a class="contrast" href="#page1"><strong>Joueurs</strong></a></li>
             <li><a class="contrast" href="#page2">Epreuves</a></li>
             <li><a class="contrast" href="#page3">Scores</a></li>
@@ -102,11 +71,12 @@
 
       <section id="page2" class="page">
         <nav>
+          <hgroup>
+            <h3>Olympiades</h3>
+            <h4 name="displaySessionName">- aucune session ouverte -</h4>
+          </hgroup>
           <ul>
-            <li><h3>Olympiades</h3></li>
-          </ul>
-          <ul>
-            <li><a class="contrast" href="#page0">Sessions</a></li>
+            <!-- <li><a class="contrast" href="#page0">Sessions</a></li> -->
             <li><a class="contrast" href="#page1">Joueurs</a></li>
             <li><a class="contrast" href="#page2"><strong>Epreuves</strong></a></li>
             <li><a class="contrast" href="#page3">Scores</a></li>
@@ -143,11 +113,12 @@
 
       <section id="page3" class="page">
         <nav>
+          <hgroup>
+            <h3>Olympiades</h3>
+            <h4 name="displaySessionName">- aucune session ouverte -</h4>
+          </hgroup>
           <ul>
-            <li><h3>Olympiades</h3></li>
-          </ul>
-          <ul>
-            <li><a class="contrast" href="#page0">Sessions</a></li>
+            <!-- <li><a class="contrast" href="#page0">Sessions</a></li> -->
             <li><a class="contrast" href="#page1">Joueurs</a></li>
             <li><a class="contrast" href="#page2">Epreuves</a></li>
             <li><a class="contrast" href="#page3"><strong>Scores</strong></a></li>
@@ -196,13 +167,14 @@
 
       </section>
 
-      <section id="page4" class="page default">
+      <section id="page4" class="page">
         <nav>
+          <hgroup>
+            <h3>Olympiades</h3>
+            <h4 name="displaySessionName">- aucune session ouverte -</h4>
+          </hgroup>
           <ul>
-            <li><h3>Olympiades</h3></li>
-          </ul>
-          <ul>
-            <li><a class="contrast" href="#page0">Sessions</a></li>
+            <!-- <li><a class="contrast" href="#page0">Sessions</a></li> -->
             <li><a class="contrast" href="#page1">Joueurs</a></li>
             <li><a class="contrast" href="#page2">Epreuves</a></li>
             <li><a class="contrast" href="#page3">Scores</a></li>
@@ -211,6 +183,52 @@
         </nav>
 
         <!-- <h6>Dashboard</h6> -->
+
+      </section>
+
+      <section id="page0" class="page default">
+        <!-- <nav>
+          <ul>
+            <li>
+              <hgroup>
+                <h3>Olympiades</h3>
+                <h4 name="displaySessionName">- aucune session ouverte -</h4>
+              </hgroup>
+            </li>
+          </ul>
+          <ul>
+            <li><a class="contrast" href="#page0"><strong>Sessions</strong></a></li>
+            <li><a class="contrast" href="#page1">Joueurs</a></li>
+            <li><a class="contrast" href="#page2">Epreuves</a></li>
+            <li><a class="contrast" href="#page3">Scores</a></li>
+            <li><a class="contrast" href="#page4">Dashboard</a></li>
+          </ul>
+        </nav> -->
+
+        <h6>Nouvelle session</h6>
+        <form>
+          <fieldset class="grid">
+            <input
+              id="createSessionName"
+              placeholder="Nom de la session *"
+            />
+            <input
+              id="addSession"
+              type="button"
+              value="Ajouter"
+            />
+          </fieldset>
+          <table id="sessions" class="striped">
+            <caption>Liste des sessions</caption>
+            <thead>
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="sessionsBody"></tbody>
+          </table>
+        </form>
 
       </section>
 
