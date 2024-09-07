@@ -1,31 +1,36 @@
 import { Driver } from "./driver.js";
 
 function classement() {
+    console.log("classement");
     const classement = document.getElementById("classement");
     const scores = document.getElementById("scoresBody");
     const ranks = new Map();
+    const filter = document.getElementById("rankingContestFilter");
 
     classement.innerText="";
 
     let maxScore = 0;
     
     scores.childNodes.forEach(score => {
-        // const contest = score.childNodes[0].innerText;
-        const player = score.childNodes[1].innerText;
-        const points = score.childNodes[2].innerText;
+        const contest = score.childNodes[0].innerText;
 
-        let rank = ranks.get(player);
-        if (!rank) {
-            rank = 0;
+        if (contest === filter.value || filter.value === "Toutes les épreuves") {
+            const player = score.childNodes[1].innerText;
+            const points = score.childNodes[2].innerText;
+
+            let rank = ranks.get(player);
+            if (!rank) {
+                rank = 0;
+            }
+
+            let total = rank + Number(points);
+
+            if (total > maxScore) {
+                maxScore = total;
+            }
+
+            ranks.set(player, total);
         }
-
-        let total = rank + Number(points);
-
-        if (total > maxScore) {
-            maxScore = total;
-        }
-
-        ranks.set(player, total);
     });
     
     new Map([...ranks.entries()].sort((a, b) => b[1] - a[1])).forEach((points, player) => {
@@ -104,6 +109,12 @@ function insertContest(contest) {
     let option = document.createElement("option");
     option.value = contest.name;
     contestList.appendChild(option);
+
+    const rankingContestFilter = document.getElementById("rankingContestFilter");
+    let filter = document.createElement("option");
+    filter.value = contest.name;
+    filter.innerText = contest.name;
+    rankingContestFilter.appendChild(filter);
 }
 
 function insertScore(score) {
@@ -207,6 +218,9 @@ document.getElementById("addScore").onclick = () => {
     const scoreInput = document.getElementById("createScoreValue");
     session.addScore(playerInput.value, contestInput.value, scoreInput.value);
 };
+document.getElementById("rankingContestFilter").onchange = () => {
+    classement();
+}
 
 function removePlayer(name) {
     session.removePlayer(name);
