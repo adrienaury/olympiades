@@ -1,7 +1,6 @@
 import { Driver } from "./driver.js";
 
 function classement() {
-    console.log("classement");
     const classement = document.getElementById("classement");
     const scores = document.getElementById("scoresBody");
     const ranks = new Map();
