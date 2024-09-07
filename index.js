@@ -1,5 +1,40 @@
 import { Driver } from "./driver.js";
 
+function classement() {
+    const classement = document.getElementById("classement");
+    const scores = document.getElementById("scoresBody");
+    const ranks = new Map();
+
+    classement.innerText="";
+
+    let maxScore = 0;
+    
+    scores.childNodes.forEach(score => {
+        // const contest = score.childNodes[0].innerText;
+        const player = score.childNodes[1].innerText;
+        const points = score.childNodes[2].innerText;
+
+        let rank = ranks.get(player);
+        if (!rank) {
+            rank = 0;
+        }
+
+        let total = rank + Number(points);
+
+        if (total > maxScore) {
+            maxScore = total;
+        }
+
+        ranks.set(player, total);
+    });
+    
+    new Map([...ranks.entries()].sort((a, b) => b[1] - a[1])).forEach((points, player) => {
+        let row = classement.insertRow();
+        row.insertCell(0).outerHTML = `<th scope="row">${player}</th>`;
+        row.insertCell(1).outerHTML = `<td style="--size: calc( ${points} / ${maxScore} )">${points}</td>`;
+    });
+}
+
 function insertSession(session) {
     const table = document.getElementById("sessionsBody");
     let row = table.insertRow();
@@ -80,6 +115,7 @@ function insertScore(score) {
     player.innerHTML = score.player;
     let points = row.insertCell(2);
     points.innerHTML = score.points;
+    classement();
 }
 
 function onPlayerAdded(event) {
@@ -146,6 +182,7 @@ function loadSession(name) {
     session.getPlayers(loadPlayer);
     session.getContests(loadContests);
     session.getScores(loadScores);
+    classement();
     document.getElementsByName("displaySessionName").forEach(e => e.innerText = name);
     location.hash = "#page1";
 }

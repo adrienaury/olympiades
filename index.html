@@ -7,6 +7,7 @@
     <title>My Website</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
     <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
   </head>
   <body class="container">
@@ -33,7 +34,7 @@
             <li><a class="contrast" href="#page1"><strong>Joueurs</strong></a></li>
             <li><a class="contrast" href="#page2">Epreuves</a></li>
             <li><a class="contrast" href="#page3">Scores</a></li>
-            <li><a class="contrast" href="#page4">Dashboard</a></li>
+            <li><a class="contrast" href="#page4">Classements</a></li>
           </ul>
         </nav>
 
@@ -80,7 +81,7 @@
             <li><a class="contrast" href="#page1">Joueurs</a></li>
             <li><a class="contrast" href="#page2"><strong>Epreuves</strong></a></li>
             <li><a class="contrast" href="#page3">Scores</a></li>
-            <li><a class="contrast" href="#page4">Dashboard</a></li>
+            <li><a class="contrast" href="#page4">Classements</a></li>
           </ul>
         </nav>
 
@@ -122,7 +123,7 @@
             <li><a class="contrast" href="#page1">Joueurs</a></li>
             <li><a class="contrast" href="#page2">Epreuves</a></li>
             <li><a class="contrast" href="#page3"><strong>Scores</strong></a></li>
-            <li><a class="contrast" href="#page4">Dashboard</a></li>
+            <li><a class="contrast" href="#page4">Classements</a></li>
           </ul>
         </nav>
 
@@ -178,11 +179,27 @@
             <li><a class="contrast" href="#page1">Joueurs</a></li>
             <li><a class="contrast" href="#page2">Epreuves</a></li>
             <li><a class="contrast" href="#page3">Scores</a></li>
-            <li><a class="contrast" href="#page4"><strong>Dashboard</strong></a></li>
+            <li><a class="contrast" href="#page4"><strong>Classements</strong></a></li>
           </ul>
         </nav>
 
-        <!-- <h6>Dashboard</h6> -->
+        <!-- <h6>Classements</h6> -->
+
+        <table class="charts-css bar show-labels show-4-secondary-axes data-spacing-5">
+          <caption>Classement</caption>
+          <thead>
+            <tr>
+              <th scope="col">Joueur</th>
+              <th scope="col">Points</th>
+            </tr>
+          </thead>
+          <tbody id="classement">
+            <tr>
+              <th scope="row">Exemple</td>
+              <td style="--size: 0.620">620</td>
+            </tr>
+          </tbody>
+        </table>
 
       </section>
 
@@ -201,7 +218,7 @@
             <li><a class="contrast" href="#page1">Joueurs</a></li>
             <li><a class="contrast" href="#page2">Epreuves</a></li>
             <li><a class="contrast" href="#page3">Scores</a></li>
-            <li><a class="contrast" href="#page4">Dashboard</a></li>
+            <li><a class="contrast" href="#page4">Classements</a></li>
           </ul>
         </nav> -->
 
