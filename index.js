@@ -3,8 +3,10 @@ import { Driver } from "./driver.js";
 function classement() {
     const classement = document.getElementById("classement");
     const scores = document.getElementById("scoresBody");
+    const players = document.getElementById("playersBody");
     const ranks = new Map();
     const filter = document.getElementById("rankingContestFilter");
+    const byteam = document.getElementById("rankingByTeamFilter");
 
     classement.innerText="";
 
@@ -17,7 +19,16 @@ function classement() {
             const player = score.childNodes[1].innerText;
             const points = score.childNodes[2].innerText;
 
-            let rank = ranks.get(player);
+            let key = player;
+            if (byteam.checked) {
+                players.childNodes.forEach(p => {
+                    if (p.childNodes[0].innerText === player) {
+                        key = p.childNodes[1].innerText;
+                    }
+                })
+            }
+
+            let rank = ranks.get(key);
             if (!rank) {
                 rank = 0;
             }
@@ -28,7 +39,7 @@ function classement() {
                 maxScore = total;
             }
 
-            ranks.set(player, total);
+            ranks.set(key, total);
         }
     });
     
@@ -218,6 +229,9 @@ document.getElementById("addScore").onclick = () => {
     session.addScore(playerInput.value, contestInput.value, scoreInput.value);
 };
 document.getElementById("rankingContestFilter").onchange = () => {
+    classement();
+}
+document.getElementById("rankingByTeamFilter").onchange = () => {
     classement();
 }
 
