@@ -8,6 +8,8 @@ function classement() {
     const filter = document.getElementById("rankingContestFilter");
     const byteam = document.getElementById("rankingByTeamFilter");
 
+    const emojis = ['🥇', '🥈', '🥉'];
+
     classement.innerText="";
 
     let maxScore = 0;
@@ -43,9 +45,14 @@ function classement() {
         }
     });
     
+    let lastPoints = Number.MAX_SAFE_INTEGER;
+    let rank = -1;
     new Map([...ranks.entries()].sort((a, b) => b[1] - a[1])).forEach((points, player) => {
         let row = classement.insertRow();
-        row.insertCell(0).outerHTML = `<th scope="row">${player}</th>`;
+        if (lastPoints > points) {
+            rank++;
+        }
+        row.insertCell(0).outerHTML = `<th scope="row"><span style="white-space: nowrap;">${player} ${rank < emojis.length ? emojis[rank] : ""}</span></th>`;
         row.insertCell(1).outerHTML = `<td style="--size: calc( ${points} / ${maxScore} )">${points}</td>`;
     });
 }

@@ -18,3 +18,15 @@ caption {
 .shrink {
     width: 0%;
 }
+
+#chart {
+    --labels-size: 10rem;
+}
+
+#chart tr:hover {
+    background-color: antiquewhite;
+}
+
+#chart tr:hover th {
+    background-color: antiquewhite;
+}
