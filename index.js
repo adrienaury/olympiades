@@ -84,7 +84,7 @@ function insertSession(session) {
 function insertPlayer(player) {
     const table = document.getElementById("playersBody");
     let row = table.insertRow();
-    row.id = player.name;
+    row.id = `players_list_${player.name}`;
     let name = row.insertCell(0);
     name.innerHTML = player.name;
     let team = row.insertCell(1);
@@ -98,6 +98,7 @@ function insertPlayer(player) {
 
     const playerList = document.getElementById("playersList");
     let option = document.createElement("option");
+    option.id = `players_filter_${player.name}`;
     option.value = player.name;
     playerList.appendChild(option);
 }
@@ -105,7 +106,7 @@ function insertPlayer(player) {
 function insertContest(contest) {
     const table = document.getElementById("contestsBody");
     let row = table.insertRow();
-    row.id = contest.name;
+    row.id = `contests_list_${contest.name}`;
     let name = row.insertCell(0);
     name.innerHTML = contest.name;
     let action = row.insertCell(1);
@@ -117,6 +118,7 @@ function insertContest(contest) {
 
     const contestList = document.getElementById("contestsList");
     let option = document.createElement("option");
+    option.id = `contests_filter_${contest.name}`;
     option.value = contest.name;
     contestList.appendChild(option);
 
@@ -146,14 +148,13 @@ function onPlayerAdded(event) {
 
 function onPlayerChanged(event) {
     console.log("Player changed on session [" + event.session + "] : name=[" + event.to.name +"] ; team=[" + event.from.team + "] => [" + event.to.team + "]");
-    const row = document.getElementById(event.from.name);
-    row.childNodes[1].innerHTML = event.to.team;
+    document.getElementById(`players_list_${event.from.name}`).childNodes[1].innerHTML = event.to.team;
 }
 
 function onPlayerRemoved(event) {
     console.log("Player removed on session [" + event.session + "] : name=[" + event.player.name +"] ; team=[" + event.player.team + "]");
-    const row = document.getElementById(event.player.name);
-    row.remove();
+    document.getElementById(`players_list_${event.player.name}`).remove();
+    document.getElementById(`players_filter_${event.player.name}`).remove();
 }
 
 function onContestAdded(event) {
@@ -163,8 +164,8 @@ function onContestAdded(event) {
 
 function onContestRemoved(event) {
     console.log("Contest removed on session [" + event.session + "] : name=[" + event.contest.name +"]");
-    const row = document.getElementById(event.contest.name);
-    row.remove();
+    document.getElementById(`contests_list_${event.contest.name}`).remove();
+    document.getElementById(`contests_filter_${event.contest.name}`).remove();
 }
 
 function onScoreAdded(event) {
