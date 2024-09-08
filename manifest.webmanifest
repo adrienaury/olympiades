@@ -1,0 +1,15 @@
+{
+    "name": "Olympiades",
+    "short_name": "Olympiades",
+    "description": "Suivre le score des participants aux épreuves",
+    "scope": "/olympiades/",
+    "start_url": "/olympiades/",
+    "display": "fullscreen",
+    "icons": [
+        {
+            "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABAdJREFUaEPFWWtP4lAQPY0aHkYQMTEKCWjY3f//P9jPho3PjUJ8LKKgQHlt5lqkpbf3zvTqLp+gnTtzzrxbvGazuQD74wFYiUd/rZSo60k3w7bCMhz54GzkWJiAQAcAmTTXRyvyPP2eMQIaHTy1XLhp5NayYEUgKZ4cyBwZDdjYMQ8eFqEk1QU6kYDUGylBS81Y5M0plHTYBXtw1kWFgrXUI+tCye5wBhRGJYiSuIiTuqD+Oo+WXSpZIl0Kafqx0Wl2hAKfR0XfCRgn0tqBj1FmOZQStGy2eRBHICUumYcFRsQEZEi+Qlo3BziMpTKf1S6/ZA64OFYzfe0L4v/uQl85ED9rkK0t09YY6X0qz7t/WsQr0MHSpmHBKbXI0NRvo1YHsgWkgDiKI7NCRmCthUWezzimlzJyWoljk10DUpucdDYOc4tB8zZqXhMa3xrwxz5ub29Rq9Wwvb2N4XCIm5sbjEYjVigODw9RKBTQarWwv7+Pg4MDde7x8RF3d3csHWqrZkcgUHl0dIRyuYyXlxeMx2OUSiWcn5+jXq+j3++j0+lgY2MDO4UdjIYjzOdz5HI5DAYDzGYzpaVYLKBSqWKxWOD09BTff/zAoN/HdDpV+ogULfzq6Uz50jYHOOFWhovKU9PZFLPpDN1uF9VqFb7vI5PJoN1po/fUUyCPj48VEc/zMJlMcHV1pa7TNSJLYLPZrAJLUczlc1jM5/D9CS4vL9nLbSQCpqwjwwTq7e0NW1tbyoA/HmN3t4Tu0x/s7ZXx/PyMdrut7hG4k5MT9f3i4uIjtSqVirrX6/VU6pydnaHRaAT3F8hkc/h9fa1+c8ouRMDclCnPKX0IPJGh1CDPU1oQQPLi5uamSifSVCgWQWApAlQrBJg+y5qh6yRPpCnFiDjppIhSGi7lE0ORrojf1REI+pARAknpQMTu7+/x8PCgCJJXX19flRyRJ0+rGghyulzeUxFotX6hXq8hn8+rmqB0oxRa1kucQIptlBNKdttQgrwWydEp7kJhpeHVILxRxgxHRidj+hn5rUXgZ7O5iL8cNbQt7SMlL0YxwrFjPD0RJ0rnACesqaIkVRzIO6WQ3qbci3bstkFm1yCSYNeGRSvHFU4R4BjgMHfRYx5kGuvmNc/WtQ10UrLgRyClAU4EXGT4BJZVn9DG9fw4A8vNM/FlTjN00ptIf9I0rSMQje9GXUaqALvLPPP0k9i6rbikreNZ3TLHWbCM0eAQ1oSEUyI2u7G3EoLQW3Q7ejr5uEMNJLUiDmuOjJwz+5EyolqAxXmtsKXZqog1/9HKHcI+EevWAqesjKT4h4aN0EXQUu/xGhAYS+UogX6paGgOGHZuxlOg1PBnyScOMmcDgT84ETPKWBT8BUA7POExGPGQAAAAAElFTkSuQmCC",
+            "type": "image/png",
+            "sizes": "48x48"
+        }
+    ]
+}
