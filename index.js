@@ -45,15 +45,18 @@ function classement() {
         }
     });
     
+    let index = 0;
     let lastPoints = Number.MAX_SAFE_INTEGER;
     let rank = -1;
     new Map([...ranks.entries()].sort((a, b) => b[1] - a[1])).forEach((points, player) => {
         let row = classement.insertRow();
         if (lastPoints > points) {
-            rank++;
+            rank = index;
+            lastPoints = points;
         }
         row.insertCell(0).outerHTML = `<th scope="row"><span style="white-space: nowrap;">${player} ${rank < emojis.length ? emojis[rank] : ""}</span></th>`;
         row.insertCell(1).outerHTML = `<td style="--size: calc( ${points} / ${maxScore} )">${points}</td>`;
+        index++;
     });
 }
 
